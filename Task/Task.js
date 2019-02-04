@@ -81,18 +81,18 @@ export default class Task {
 
   // Pub/Sub
 
-  addSubscriber(subscriber, channel = GLOBAL) {
+  addTaskWorker(taskWorker, channel = GLOBAL) {
     this.subscribers.push({
       channel,
-      subscriber,
+      taskWorker,
     });
-    subscriber.setTask(this);
+    taskWorker.setTask(this);
   }
 
   publish(message, channel = GLOBAL) {
     this.subscribers.map((subscriber) => {
       if (channel === GLOBAL || subscriber.channel === channel) {
-        subscriber.subscriber.subscribe(message);
+        subscriber.taskWorker.subscribe(message);
       }
     });
   }

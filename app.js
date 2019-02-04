@@ -15,10 +15,20 @@ const app = () => {
   const taskManager = new TaskManager();
   taskManager.addTask(print);
 
-  const printWorker1 = new TaskWorker('print', 2);
-  taskManager.addSubscriber(printWorker1);
+  const printWorker1 = new TaskWorker('print', 10);
+  taskManager.addTaskWorker(printWorker1);
   const printWorker2 = new TaskWorker('print', 10);
-  taskManager.addSubscriber(printWorker2);
+  taskManager.addTaskWorker(printWorker2);
+  // const printWorker3 = new TaskWorker('print', 10);
+  // taskManager.addTaskWorker(printWorker3);
+  // const printWorker4 = new TaskWorker('print', 10);
+  // taskManager.addTaskWorker(printWorker4);
+  // const printWorker5 = new TaskWorker('print', 10);
+  // taskManager.addTaskWorker(printWorker5);
+  // const printWorker6 = new TaskWorker('print', 10);
+  // taskManager.addTaskWorker(printWorker6);
+  // const printWorker7 = new TaskWorker('print', 10);
+  // taskManager.addTaskWorker(printWorker7);
 
   const printCreator = new TaskCreator.Print();
   printCreator.setTaskManager(taskManager);

@@ -33,8 +33,8 @@ export default class TaskManager {
     return this.task[name].isEmpty();
   }
 
-  addSubscriber(subscriber, channel = GLOBAL) {
-    this.task[subscriber.getName()].addSubscriber(subscriber, channel);
+  addTaskWorker(taskWorker, channel = GLOBAL) {
+    this.task[taskWorker.getName()].addTaskWorker(taskWorker, channel);
   }
 
   publish(name, message, channel = GLOBAL) {
